@@ -1,28 +1,22 @@
-baseURL = 'https://funwithenglish.github.io/suhendi.github.io/' # Ganti dengan URL GitHub Anda nanti
-languageCode = 'id-id'
-title = 'Nama Blog Anda'
+baseURL = 'https://funwithenglish.github.io/suhendi.github.io/'
+locale = 'id-id'
+title = 'Blog Edukasi Bahasa Inggris SMP'
 theme = 'PaperMod'
 
-# Pengaturan Tampilan Elegan
 [params]
   env = "production"
-  title = "Nama Blog Anda"
-  description = "Blog pribadi seputar teknologi, pemrograman, dan kehidupan."
-  author = "Nama Anda"
+  title = "Blog Edukasi Bahasa Inggris SMP"
+  description = "Blog edukasi pembelajaran Bahasa Inggris untuk SMP, berisi materi, LKPD, kuis, latihan, dan media pembelajaran digital interaktif"
+  author = "Suhendi"
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
-  defaultTheme = "auto" # Otomatis mengikuti mode gelap/terang perangkat pengguna
-  
-  # Menampilkan mode toggle (Dark/Light)
-  [params.assets]
-    disableHLJS = true
+  defaultTheme = "auto"
 
-# Menu Navigasi Atas
 [[menu.main]]
-  name = "🔍 Pencarian"
+  name = " Pencarian"
   url = "search/"
   weight = 5
 
@@ -41,6 +35,5 @@ theme = 'PaperMod'
   url = "about/"
   weight = 20
 
-# Pengaturan Halaman Pencarian
 [outputs]
   home = ["HTML", "RSS", "JSON"]

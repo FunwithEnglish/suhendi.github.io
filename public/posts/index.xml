@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Nama Blog Anda</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Nama Blog Anda</description>
+    <title>Posts on Blog Edukasi Bahasa Inggris SMP</title>
+    <link>http://localhost:1313/suhendi.github.io/posts/</link>
+    <description>Recent content in Posts on Blog Edukasi Bahasa Inggris SMP</description>
     <generator>Hugo</generator>
     <language>id-id</language>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/suhendi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/posts/selamat-datang/</link>
+      <link>http://localhost:1313/suhendi.github.io/posts/materi-bahasa-inggris-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/selamat-datang/</guid>
+      <guid>http://localhost:1313/suhendi.github.io/posts/materi-bahasa-inggris-1/</guid>
+      <description>&lt;p&gt;-&amp;ndash;&lt;/p&gt;
+&lt;p&gt;title: &amp;ldquo;Materi: Simple Present Tense untuk SMP&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;date: 2026-09-14&lt;/p&gt;
+&lt;p&gt;draft: false&lt;/p&gt;
+&lt;p&gt;tags: [&amp;ldquo;Grammar&amp;rdquo;, &amp;ldquo;SMP&amp;rdquo;, &amp;ldquo;Materi&amp;rdquo;]&lt;/p&gt;
+&lt;p&gt;author: &amp;ldquo;Suhendi&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;description: &amp;ldquo;Penjelasan lengkap dan contoh soal Simple Present Tense.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;-&amp;ndash;&lt;/p&gt;
+&lt;p&gt;Halo siswa-siswi! Hari ini kita akan belajar tentang **Simple Present Tense**.&lt;/p&gt;
+&lt;p&gt;## Apa itu Simple Present Tense?&lt;/p&gt;
+&lt;p&gt;Simple Present Tense adalah bentuk kata kerja yang digunakan untuk menyatakan kebiasaan, fakta, atau kejadian yang terjadi saat ini.&lt;/p&gt;
+&lt;p&gt;## Rumus Dasar&lt;/p&gt;
+&lt;p&gt;- **Positif (+):** Subject + Verb 1 (s/es) + Object&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/suhendi.github.io/posts/selamat-datang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/suhendi.github.io/posts/selamat-datang/</guid>
       <description>&lt;p&gt;-&amp;ndash;&lt;/p&gt;
 &lt;p&gt;title: &amp;ldquo;Perjalanan Dimulai: Selamat Datang di Blog Saya&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;date: 2026-09-14&lt;/p&gt;
 &lt;p&gt;draft: false&lt;/p&gt;
 &lt;p&gt;tags: [&amp;ldquo;Pribadi&amp;rdquo;, &amp;ldquo;Blog&amp;rdquo;]&lt;/p&gt;
 &lt;p&gt;author: &amp;ldquo;Suhendi&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;description: &amp;ldquo;Blog edukasi pembelajaran Bahasa Inggris untuk SMP, berisi materi,LKPD,kuis,latihan, dan media pembelajaran digital interaktif&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;description: &amp;ldquo;Blog edukasi pembelajaran Bahasa Inggris untuk SMP, berisi materi, LKPD, kuis, latihan, dan media pembelajaran digital interaktif&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;-&amp;ndash;&lt;/p&gt;
 &lt;p&gt;Halo dunia! Ini adalah artikel pertama saya di blog yang di-hosting menggunakan GitHub Pages dan Hugo.&lt;/p&gt;
 &lt;p&gt;Saya sangat senang bisa berbagi cerita dan ilmu di sini. Nantikan artikel-artikel selanjutnya!&lt;/p&gt;</description>
