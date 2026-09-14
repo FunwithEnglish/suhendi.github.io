@@ -10,13 +10,13 @@ tags: \["Pribadi", "Blog"]
 
 author: "Suhendi"
 
-description: "Blog edukasi pembelajaran Bahasa Inggris untuk SMP, berisi materi,LKPD,kuis,latihan, dan media pembelajaran digital interaktif"
+description: "Blog edukasi pembelajaran Bahasa Inggris untuk SMP, berisi materi, LKPD, kuis, latihan, dan media pembelajaran digital interaktif"
 
 \---
 
 
 
-Halo dunia! Ini adalah artikel pertama saya di blog yang di-hosting menggunakan GitHub Pages dan Hugo. 
+Halo dunia! Ini adalah artikel pertama saya di blog yang di-hosting menggunakan GitHub Pages dan Hugo.
 
 
 
