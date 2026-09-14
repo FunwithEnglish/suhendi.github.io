@@ -1,12 +1,39 @@
----
-title: "Perjalanan Dimulai: Selamat Datang di Blog Saya"
-date: 2026-09-14
-draft: false
-tags: ["Pribadi", "Blog"]
-author: "Suhendi"
-description: "Blog edukasi pembelajaran Bahasa Inggris untuk SMP"
----
+baseURL = 'https://funwithenglish.github.io/suhendi.github.io/'
+locale = 'id-id'
+title = 'Blog Edukasi Bahasa Inggris SMP'
+theme = 'PaperMod'
 
-Halo dunia! Ini adalah artikel pertama saya di blog yang di-hosting menggunakan GitHub Pages dan Hugo.
+[params]
+  env = "production"
+  title = "Blog Edukasi Bahasa Inggris SMP"
+  description = "Blog edukasi pembelajaran Bahasa Inggris untuk SMP, berisi materi, LKPD, kuis, latihan, dan media pembelajaran digital interaktif"
+  author = "Suhendi"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "auto"
 
-Saya sangat senang bisa berbagi cerita dan ilmu di sini. Nantikan artikel-artikel selanjutnya!
+[[menu.main]]
+  name = " Pencarian"
+  url = "search/"
+  weight = 5
+
+[[menu.main]]
+  name = "📝 Artikel"
+  url = "posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "🏷️ Tag"
+  url = "tags/"
+  weight = 15
+  
+[[menu.main]]
+  name = "👤 Tentang"
+  url = "about/"
+  weight = 20
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
