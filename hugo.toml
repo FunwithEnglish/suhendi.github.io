@@ -1,4 +1,4 @@
-baseURL = 'https://username-anda.github.io/' # Ganti dengan URL GitHub Anda nanti
+baseURL = baseURL = 'https://FunwithEnglish.github.io/' # Ganti dengan URL GitHub Anda nanti
 languageCode = 'id-id'
 title = 'Nama Blog Anda'
 theme = 'PaperMod'
