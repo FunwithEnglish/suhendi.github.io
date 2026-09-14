@@ -1,0 +1,46 @@
+baseURL = 'https://username-anda.github.io/' # Ganti dengan URL GitHub Anda nanti
+languageCode = 'id-id'
+title = 'Nama Blog Anda'
+theme = 'PaperMod'
+
+# Pengaturan Tampilan Elegan
+[params]
+  env = "production"
+  title = "Nama Blog Anda"
+  description = "Blog pribadi seputar teknologi, pemrograman, dan kehidupan."
+  author = "Nama Anda"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "auto" # Otomatis mengikuti mode gelap/terang perangkat pengguna
+  
+  # Menampilkan mode toggle (Dark/Light)
+  [params.assets]
+    disableHLJS = true
+
+# Menu Navigasi Atas
+[[menu.main]]
+  name = "🔍 Pencarian"
+  url = "search/"
+  weight = 5
+
+[[menu.main]]
+  name = "📝 Artikel"
+  url = "posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "🏷️ Tag"
+  url = "tags/"
+  weight = 15
+  
+[[menu.main]]
+  name = "👤 Tentang"
+  url = "about/"
+  weight = 20
+
+# Pengaturan Halaman Pencarian
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
