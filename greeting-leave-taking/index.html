@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Say Hi &amp; Bye! — Materi Greeting &amp; Leave Taking Kelas VII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F6FA;
+    --surface:#FFFFFF;
+    --ink:#1C2530;
+    --ink-soft:#54627A;
+    --ink-faint:#8A96AC;
+    --primary:#2F5D8A;
+    --primary-dark:#1F4666;
+    --primary-light:#E7EFF7;
+    --accent:#E39A2D;
+    --accent-dark:#B97A1B;
+    --accent-light:#FCF0DA;
+    --dusk:#6C5CE0;
+    --dusk-light:#ECE9FB;
+    --success:#2F9E64;
+    --success-light:#E4F5EB;
+    --danger:#D64550;
+    --danger-light:#FBE6E8;
+    --border:#DEE5ED;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:9px;
+    --font-head:'Fredoka',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --shadow:0 6px 20px rgba(31,70,102,0.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+  }
+  h1,h2,h3,h4{font-family:var(--font-head);color:var(--primary-dark);margin:0 0 .5em;line-height:1.25;}
+  p{margin:0 0 1em;color:var(--ink-soft);}
+  a{color:var(--primary);}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--primary);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:200;}
+  .skip-link:focus{left:0;}
+
+  /* progress bar */
+  #progressBar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent));width:0%;z-index:300;transition:width .1s ease;}
+
+  /* topbar */
+  header.topbar{
+    position:sticky;top:0;z-index:150;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--border);
+    padding:10px 18px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:600;color:var(--primary-dark);font-size:1.05rem;}
+  .brand-badge{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--dusk));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0;}
+  .topbar-actions{display:flex;gap:8px;align-items:center;}
+  .icon-btn{
+    border:1px solid var(--border);background:#fff;border-radius:10px;padding:8px 12px;
+    font-family:var(--font-body);font-size:.85rem;font-weight:600;color:var(--primary-dark);
+    cursor:pointer;display:flex;align-items:center;gap:6px;
+  }
+  .icon-btn:hover{background:var(--primary-light);}
+  #menuToggle{display:none;}
+
+  .progress-chip{font-size:.78rem;color:var(--ink-faint);font-weight:600;white-space:nowrap;}
+
+  /* layout */
+  .layout{display:flex;max-width:1280px;margin:0 auto;align-items:flex-start;}
+  nav.sidebar{
+    width:250px;flex-shrink:0;position:sticky;top:62px;
+    max-height:calc(100vh - 62px);overflow-y:auto;
+    padding:22px 12px 40px 18px;
+  }
+  nav.sidebar ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--border);}
+  nav.sidebar li{margin:0;}
+  nav.sidebar a{
+    display:block;padding:8px 14px;font-size:.86rem;color:var(--ink-soft);text-decoration:none;
+    border-left:2px solid transparent;margin-left:-2px;font-weight:500;
+  }
+  nav.sidebar a:hover{color:var(--primary);background:var(--primary-light);border-radius:0 8px 8px 0;}
+  nav.sidebar a.active{color:var(--primary-dark);border-left-color:var(--primary);font-weight:700;background:var(--primary-light);border-radius:0 8px 8px 0;}
+
+  main{flex:1;min-width:0;padding:24px 22px 80px;}
+
+  section{scroll-margin-top:74px;margin-bottom:52px;}
+  .chip{
+    display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.02em;
+    color:var(--primary);background:var(--primary-light);padding:4px 12px;border-radius:999px;margin-bottom:10px;
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:26px 26px;box-shadow:var(--shadow);
+  }
+  .card + .card{margin-top:18px;}
+
+  /* hero */
+  .hero{
+    border-radius:var(--radius-lg);
+    background:linear-gradient(120deg,#2F5D8A 0%,#3E7CB1 45%,#E39A2D 100%);
+    color:#fff;padding:42px 30px;position:relative;overflow:hidden;margin-bottom:14px;
+  }
+  .hero h1{color:#fff;font-size:2rem;margin-bottom:.3em;}
+  .hero p.lead{color:rgba(255,255,255,.92);font-size:1.05rem;max-width:640px;}
+  .hero .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .meta-tag{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:999px;}
+  .hero-illustration{position:absolute;right:18px;bottom:-10px;opacity:.9;}
+
+  /* buttons */
+  .btn{
+    font-family:var(--font-body);font-weight:700;font-size:.88rem;border-radius:11px;
+    padding:10px 18px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
+    transition:transform .08s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--primary);color:#fff;}
+  .btn-primary:hover{background:var(--primary-dark);}
+  .btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--primary);}
+  .btn-outline:hover{background:var(--primary-light);}
+  .btn-accent{background:var(--accent);color:#fff;}
+  .btn-accent:hover{background:var(--accent-dark);}
+  .btn-ghost{background:transparent;color:var(--ink-soft);border:1.5px dashed var(--border);}
+  .btn-sm{padding:6px 12px;font-size:.78rem;border-radius:9px;}
+  .say-btn{background:var(--dusk-light);color:var(--dusk);border:none;border-radius:9px;padding:5px 9px;font-size:.82rem;cursor:pointer;font-weight:700;}
+  .say-btn:hover{background:#DCD7F8;}
+  .hero-avatar{position:absolute;top:20px;right:24px;width:74px;height:74px;border-radius:50%;overflow:hidden;border:3px solid rgba(255,255,255,.65);box-shadow:0 4px 14px rgba(0,0,0,.18);background:rgba(255,255,255,.15);}
+  .hero-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+  @media (max-width:600px){.hero-avatar{width:52px;height:52px;top:14px;right:14px;}}
+
+  /* goal list */
+  .goal-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
+  .goal-list li{display:flex;gap:12px;align-items:flex-start;background:var(--primary-light);border-radius:var(--radius-md);padding:14px 16px;}
+  .goal-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;font-family:var(--font-head);font-weight:600;display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+
+  /* apersepsi */
+  .think-box{background:var(--accent-light);border:1px dashed var(--accent);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:12px;}
+  .think-box strong{color:var(--accent-dark);}
+  details.reveal{margin-top:8px;}
+  details.reveal summary{cursor:pointer;color:var(--primary);font-weight:700;font-size:.85rem;list-style:none;display:inline-flex;align-items:center;gap:6px;}
+  details.reveal summary::-webkit-details-marker{display:none;}
+  details.reveal summary:before{content:"💬";}
+  details.reveal[open] summary:before{content:"👇";}
+  details.reveal .reveal-body{background:#fff;border-radius:var(--radius-sm);padding:12px 14px;margin-top:8px;border:1px solid var(--border);}
+
+  /* why grid */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  .why-item{background:var(--primary-light);border-radius:var(--radius-md);padding:16px;}
+  .why-item .ico{font-size:1.5rem;}
+  .why-item h4{margin:8px 0 4px;font-size:.95rem;color:var(--primary-dark);}
+  .why-item p{font-size:.85rem;margin:0;}
+
+  /* table */
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  thead th{background:var(--primary);color:#fff;text-align:left;padding:10px 12px;font-family:var(--font-head);font-weight:500;font-size:.82rem;}
+  thead th:first-child{border-radius:10px 0 0 0;}
+  thead th:last-child{border-radius:0 10px 0 0;}
+  tbody td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+  tbody tr:nth-child(even){background:#FAFCFE;}
+  tbody tr:hover{background:var(--primary-light);}
+  .eng-cell{font-weight:700;color:var(--primary-dark);white-space:nowrap;}
+
+  /* grammar */
+  .pattern-box{background:var(--dusk-light);border-radius:var(--radius-md);padding:18px 20px;margin:14px 0;}
+  .pattern-box .formula{font-family:var(--font-head);font-size:1.15rem;color:var(--dusk);font-weight:600;}
+  .mistake-box{background:var(--danger-light);border-left:4px solid var(--danger);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:14px 16px;margin-top:14px;}
+  .mistake-box h4{color:var(--danger);margin:0 0 8px;font-size:.9rem;}
+  .mistake-box ul{margin:0;padding-left:18px;font-size:.87rem;color:var(--ink-soft);}
+  .mistake-box li{margin-bottom:6px;}
+
+  /* dialogue */
+  .dialogue{background:var(--primary-light);border-radius:var(--radius-md);padding:18px 20px;margin-bottom:14px;}
+  .dialogue h4{margin:0 0 12px;font-size:.95rem;color:var(--primary-dark);display:flex;align-items:center;gap:8px;}
+  .bubble{background:#fff;border-radius:14px;padding:10px 14px;margin-bottom:8px;max-width:88%;box-shadow:0 2px 6px rgba(31,70,102,.06);position:relative;}
+  .bubble.right{margin-left:auto;background:var(--accent-light);}
+  .bubble .who{font-weight:700;font-size:.78rem;color:var(--primary);display:block;margin-bottom:2px;}
+  .bubble.right .who{color:var(--accent-dark);}
+  .bubble .tr{font-size:.78rem;color:var(--ink-faint);font-style:italic;margin-top:2px;}
+
+  /* understand recap */
+  .time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;}
+  .time-card{border-radius:var(--radius-md);padding:14px 12px;text-align:center;border:1px solid var(--border);}
+  .time-card .clock{font-size:1.6rem;}
+  .time-card h4{font-size:.85rem;margin:6px 0 2px;}
+  .time-card p{font-size:.78rem;margin:0;color:var(--ink-faint);}
+  .time-card.morning{background:#EAF4FB;}
+  .time-card.afternoon{background:var(--accent-light);}
+  .time-card.evening{background:#F3ECFB;}
+  .time-card.night{background:#E9EBF7;}
+
+  /* practice */
+  .level-tag{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;padding:4px 11px;border-radius:999px;margin-bottom:10px;}
+  .level-easy{background:var(--success-light);color:var(--success);}
+  .level-medium{background:var(--accent-light);color:var(--accent-dark);}
+  .level-challenge{background:var(--danger-light);color:var(--danger);}
+  .exercise{border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 20px;margin-bottom:18px;background:#FCFDFE;}
+  .exercise h4{font-size:1rem;margin-bottom:4px;}
+  .instruction{font-size:.85rem;color:var(--ink-faint);margin-bottom:14px;font-style:italic;}
+  .q-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--border);}
+  .q-row:last-of-type{border-bottom:none;}
+  .q-num{font-weight:700;color:var(--primary-dark);min-width:22px;}
+  select, input[type=text], textarea{
+    font-family:var(--font-body);border:1.5px solid var(--border);border-radius:9px;padding:8px 10px;font-size:.88rem;color:var(--ink);background:#fff;
+  }
+  textarea{width:100%;resize:vertical;min-height:70px;}
+  .mc-option{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:9px;cursor:pointer;font-size:.88rem;}
+  .mc-option:hover{background:var(--primary-light);}
+  .mc-option input{accent-color:var(--primary);}
+  .fb-icon{font-weight:700;font-size:.9rem;margin-left:4px;}
+  .fb-icon.correct{color:var(--success);}
+  .fb-icon.incorrect{color:var(--danger);}
+  .explain{font-size:.8rem;color:var(--ink-faint);margin-top:6px;padding-left:2px;display:none;}
+  .explain.show{display:block;}
+  .exercise-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center;}
+  .score-out{font-weight:700;font-size:.85rem;color:var(--primary-dark);}
+
+  .word-bank{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .word-chip{background:var(--primary-light);border:1.5px solid var(--primary);color:var(--primary-dark);border-radius:9px;padding:7px 12px;font-size:.86rem;font-weight:600;cursor:pointer;}
+  .word-chip.used{opacity:.35;cursor:not-allowed;}
+  .answer-slot{min-height:44px;border:2px dashed var(--border);border-radius:9px;padding:8px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff;}
+  .answer-slot .word-chip{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark);}
+
+  .picture-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .picture-card{border:1px solid var(--border);border-radius:var(--radius-md);padding:12px;text-align:center;background:#fff;}
+  .picture-card svg{width:56px;height:56px;}
+  .picture-card select{width:100%;margin-top:8px;}
+
+  /* real life / project */
+  .steps{list-style:none;padding:0;margin:0;counter-reset:step;}
+  .steps li{counter-increment:step;position:relative;padding-left:38px;margin-bottom:14px;}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:0;width:26px;height:26px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;font-family:var(--font-head);}
+
+  .rubric-table td, .rubric-table th{font-size:.83rem;}
+
+  .reflect-item{margin-bottom:16px;}
+  .reflect-item label{display:block;font-weight:600;margin-bottom:6px;font-size:.9rem;color:var(--primary-dark);}
+
+  .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .summary-box{background:var(--primary-light);border-radius:var(--radius-md);padding:16px 18px;}
+  .summary-box h4{font-size:.9rem;margin-bottom:8px;}
+  .summary-box ul{margin:0;padding-left:18px;font-size:.85rem;color:var(--ink-soft);}
+
+  .assess-final{background:var(--success-light);border-radius:var(--radius-md);padding:16px 18px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .assess-final .big-score{font-family:var(--font-head);font-size:1.6rem;color:var(--success);font-weight:700;}
+
+  .nav-btns{display:flex;justify-content:space-between;margin-top:26px;gap:10px;}
+
+  footer{text-align:center;padding:30px 20px;color:var(--ink-faint);font-size:.82rem;}
+
+  #backdrop{display:none;position:fixed;inset:0;background:rgba(20,30,45,.4);z-index:140;}
+
+  @media (max-width:992px){
+    nav.sidebar{
+      position:fixed;top:0;left:0;height:100vh;max-height:100vh;background:#fff;width:270px;
+      transform:translateX(-100%);transition:transform .25s ease;z-index:160;box-shadow:8px 0 24px rgba(0,0,0,.12);
+      padding-top:70px;
+    }
+    nav.sidebar.open{transform:translateX(0);}
+    #menuToggle{display:flex;}
+    .why-grid{grid-template-columns:1fr;}
+    .time-grid{grid-template-columns:1fr 1fr;}
+    .picture-row{grid-template-columns:1fr 1fr;}
+    .summary-grid{grid-template-columns:1fr;}
+    .hero{padding:30px 20px;}
+    .hero h1{font-size:1.5rem;}
+    main{padding:18px 14px 60px;}
+  }
+
+  @media print{
+    header.topbar, nav.sidebar, #progressBar, #backdrop, .btn, .exercise-actions, .say-btn, .nav-btns{display:none !important;}
+    body{background:#fff;}
+    .layout{display:block;}
+    main{padding:0;}
+    section{margin-bottom:24px;page-break-inside:avoid;}
+    .card{box-shadow:none;border:1px solid #ccc;}
+  }
+</style>
+</head>
+<body>
+<a href="#hero" class="skip-link">Langsung ke isi materi</a>
+<div id="progressBar"></div>
+<div id="backdrop" onclick="toggleMenu(false)"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <button id="menuToggle" class="icon-btn" onclick="toggleMenu()" aria-label="Buka menu navigasi">☰</button>
+    <div class="brand-badge" id="brandBadge">
+      <img id="schoolLogo" src="logo.png" alt="Logo Sekolah" style="width:100%;height:100%;object-fit:cover;border-radius:10px;" onerror="this.style.display='none'; document.getElementById('badgeEmoji').style.display='flex';">
+      <span id="badgeEmoji" style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">👋</span>
+    </div>
+    <span>Say Hi &amp; Bye!</span>
+  </div>
+  <div class="topbar-actions">
+    <span class="progress-chip" id="progressChip">0/14 bagian dibaca</span>
+    <button class="icon-btn" onclick="window.print()">🖨️ Cetak</button>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Navigasi materi">
+    <ol id="tocList">
+      <li><a href="#hero" data-sec="hero">🏠 Beranda</a></li>
+      <li><a href="#tujuan" data-sec="tujuan">🎯 Tujuan Pembelajaran</a></li>
+      <li><a href="#apersepsi" data-sec="apersepsi">💭 Yuk, Mulai!</a></li>
+      <li><a href="#why" data-sec="why">🌟 Kenapa Penting?</a></li>
+      <li><a href="#vocabulary" data-sec="vocabulary">📚 Kosakata</a></li>
+      <li><a href="#grammar" data-sec="grammar">🧩 Pola Bahasa</a></li>
+      <li><a href="#model" data-sec="model">🗨️ Contoh Percakapan</a></li>
+      <li><a href="#understand" data-sec="understand">🔎 Rangkuman Cepat</a></li>
+      <li><a href="#practice" data-sec="practice">✏️ Latihan</a></li>
+      <li><a href="#reallife" data-sec="reallife">🌍 Praktik Nyata</a></li>
+      <li><a href="#project" data-sec="project">🎨 Proyek Mini</a></li>
+      <li><a href="#reflection" data-sec="reflection">🪞 Refleksi</a></li>
+      <li><a href="#summary" data-sec="summary">📝 Rangkuman</a></li>
+      <li><a href="#assessment" data-sec="assessment">✅ Evaluasi</a></li>
+    </ol>
+  </nav>
+
+  <main id="mainContent">
+
+    <!-- A. HERO / JUDUL -->
+    <section id="hero">
+      <div class="hero">
+        <div class="hero-avatar" id="heroAvatar"><img src="foto-guru.jpg" alt="Foto Suhendi, S.Pd" onerror="this.closest('.hero-avatar').style.display='none';"></div>
+        <span class="meta-tag" style="margin-bottom:10px;display:inline-block;">Bahasa Inggris • Kelas VII • Fase D</span>
+        <h1>Say Hi &amp; Bye! 👋</h1>
+        <p class="lead">Petualangan seru menyapa dan berpamitan dalam Bahasa Inggris — biar kamu makin percaya diri ngobrol dengan teman, guru, dan keluarga, mulai dari pagi sampai malam hari.</p>
+        <div class="meta-row">
+          <span class="meta-tag">👨‍🏫 Guru: Suhendi, S.Pd</span>
+          <span class="meta-tag">⏱️ 2 x 40 menit</span>
+          <span class="meta-tag">📘 Kurikulum Merdeka</span>
+          <span class="meta-tag">🗂️ Topik: Greeting &amp; Leave Taking</span>
+        </div>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-faint);">Catatan: materi ini disusun untuk siswa kelas VII (usia 12–13 tahun) dengan asumsi ini pertemuan pertama tentang topik Greeting &amp; Leave Taking, sehingga penjelasan dimulai dari dasar.</p>
+    </section>
+
+    <!-- B. TUJUAN PEMBELAJARAN -->
+    <section id="tujuan">
+      <span class="chip">Bagian 1</span>
+      <h2>🎯 Tujuan Pembelajaran</h2>
+      <div class="card">
+        <p>Setelah mempelajari materi ini, kamu diharapkan mampu:</p>
+        <ul class="goal-list">
+          <li><span class="goal-num">1</span><span>Mengidentifikasi ungkapan <em>greeting</em> (menyapa) dan <em>leave taking</em> (berpamitan) dalam Bahasa Inggris.</span></li>
+          <li><span class="goal-num">2</span><span>Membedakan penggunaan <em>greeting</em> formal dan informal sesuai situasi dan waktu.</span></li>
+          <li><span class="goal-num">3</span><span>Melafalkan ungkapan <em>greeting</em> dan <em>leave taking</em> dengan pengucapan yang tepat.</span></li>
+          <li><span class="goal-num">4</span><span>Menyusun dan mempraktikkan dialog sederhana yang berisi <em>greeting</em> dan <em>leave taking</em>.</span></li>
+          <li><span class="goal-num">5</span><span>Menerapkan ungkapan <em>greeting</em> dan <em>leave taking</em> dalam situasi nyata sehari-hari di rumah, sekolah, dan lingkungan sekitar.</span></li>
+        </ul>
+      </div>
+      <div class="nav-btns"><span></span><button class="btn btn-outline" onclick="goTo('apersepsi')">Lanjut ke Yuk Mulai! →</button></div>
+    </section>
+
+    <!-- C. APERSEPSI -->
+    <section id="apersepsi">
+      <span class="chip">Bagian 2</span>
+      <h2>💭 Let's Get Started!</h2>
+      <div class="card">
+        <p>Sebelum belajar lebih jauh, coba jawab dulu pertanyaan-pertanyaan ini dalam hati atau bareng teman sebangkumu.</p>
+        <div class="think-box">
+          <strong>1. What do you usually say when you meet your friend at school in the morning?</strong>
+          <p style="margin:6px 0 0;font-size:.85rem;">(Apa yang biasanya kamu ucapkan saat bertemu temanmu di sekolah pada pagi hari?)</p>
+          <details class="reveal"><summary>Lihat contoh jawaban</summary><div class="reveal-body">Biasanya kita bilang "Hi!", "Hello!", atau "Good morning!" sambil melambaikan tangan atau tersenyum.</div></details>
+        </div>
+        <div class="think-box">
+          <strong>2. What do you say to your grandma or grandpa before you go to sleep?</strong>
+          <p style="margin:6px 0 0;font-size:.85rem;">(Apa yang kamu ucapkan pada nenek atau kakekmu sebelum tidur?)</p>
+          <details class="reveal"><summary>Lihat contoh jawaban</summary><div class="reveal-body">Biasanya kita bilang "Selamat malam" — dalam Bahasa Inggris ini adalah "Good night", yang dipakai saat berpisah, bukan saat baru bertemu.</div></details>
+        </div>
+        <div class="think-box">
+          <strong>3. How do you say "bye" to your friend when the school bell rings?</strong>
+          <p style="margin:6px 0 0;font-size:.85rem;">(Bagaimana kamu berpamitan pada temanmu saat bel pulang berbunyi?)</p>
+          <details class="reveal"><summary>Lihat contoh jawaban</summary><div class="reveal-body">Kita bisa bilang "Bye!", "See you tomorrow!", atau "See you later!"</div></details>
+        </div>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('tujuan')">← Kembali</button><button class="btn btn-outline" onclick="goTo('why')">Lanjut →</button></div>
+    </section>
+
+    <!-- D. WHY DO WE LEARN THIS -->
+    <section id="why">
+      <span class="chip">Bagian 3</span>
+      <h2>🌟 Why Do We Learn This?</h2>
+      <div class="card">
+        <p>Menyapa dan berpamitan adalah hal pertama yang kita lakukan setiap kali bertemu atau berpisah dengan orang lain. Menguasai ungkapan ini dalam Bahasa Inggris membuatmu lebih percaya diri saat berkomunikasi, baik secara langsung maupun online.</p>
+        <div class="why-grid">
+          <div class="why-item"><span class="ico">🏫</span><h4>Di Sekolah</h4><p>Menyapa guru bahasa Inggris atau teman baru pertukaran pelajar dengan sopan dan tepat waktu (pagi/siang).</p></div>
+          <div class="why-item"><span class="ico">🏠</span><h4>Di Rumah</h4><p>Video call dengan saudara yang tinggal di luar negeri, atau menyapa tamu keluarga yang berbicara Bahasa Inggris.</p></div>
+          <div class="why-item"><span class="ico">🌐</span><h4>Di Lingkungan Sekitar</h4><p>Berkomunikasi dengan turis asing yang bertanya arah, atau chatting dengan teman dari negara lain di media sosial.</p></div>
+        </div>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('apersepsi')">← Kembali</button><button class="btn btn-outline" onclick="goTo('vocabulary')">Lanjut →</button></div>
+    </section>
+
+    <!-- E. VOCABULARY -->
+    <section id="vocabulary">
+      <span class="chip">Bagian 4</span>
+      <h2>📚 Vocabulary</h2>
+      <div class="card">
+        <p>Berikut kosakata penting seputar <em>greeting</em> dan <em>leave taking</em>. Klik ikon 🔊 untuk mendengarkan cara pengucapannya.</p>
+        <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>English</th><th>Arti</th><th>Contoh Kalimat</th></tr></thead>
+          <tbody id="vocabBody"></tbody>
+        </table>
+        </div>
+        <p style="font-size:.78rem;margin-top:10px;">🔊 Fitur suara menggunakan Text-to-Speech bawaan browser. Jika tidak ada suara, pastikan volume perangkat aktif dan browser mendukung Web Speech API (Chrome/Edge dianjurkan).</p>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('why')">← Kembali</button><button class="btn btn-outline" onclick="goTo('grammar')">Lanjut →</button></div>
+    </section>
+
+    <!-- F. GRAMMAR -->
+    <section id="grammar">
+      <span class="chip">Bagian 5</span>
+      <h2>🧩 Language Focus</h2>
+      <div class="card">
+        <h3 style="font-size:1rem;">1. Pola Greeting Berdasarkan Waktu</h3>
+        <p><strong>Contoh:</strong> "Good morning, Miss Rina!" — diucapkan pukul 05.00–11.00.</p>
+        <div class="pattern-box">
+          <div class="formula">Good + morning / afternoon / evening (+ nama/title)</div>
+        </div>
+        <p><strong>Penjelasan:</strong> Kata <em>Good</em> diikuti keterangan waktu digunakan untuk menyapa saat <u>bertemu</u> seseorang. Nama atau sapaan (Sir, Madam, nama teman) bersifat opsional, tapi membuat sapaan terdengar lebih sopan.</p>
+        <p><strong>Contoh tambahan:</strong> "Good afternoon, everyone." · "Good evening, Mom and Dad."</p>
+
+        <h3 style="font-size:1rem;margin-top:20px;">2. "Good night" itu Beda!</h3>
+        <div class="pattern-box">
+          <div class="formula">Good night = ucapan BERPISAH, bukan menyapa</div>
+        </div>
+        <p><strong>Penjelasan:</strong> Walaupun polanya mirip, "Good night" <u>tidak</u> dipakai untuk menyapa saat bertemu malam hari. Untuk menyapa di malam hari, kita tetap pakai "Good evening". "Good night" hanya dipakai saat berpisah atau sebelum tidur.</p>
+        <p><strong>Contoh:</strong> Bertemu malam hari → "Good evening!" · Berpisah/mau tidur → "Good night, sleep well."</p>
+
+        <h3 style="font-size:1rem;margin-top:20px;">3. Formal vs Informal</h3>
+        <div class="pattern-box">
+          <div class="formula">Formal: Good morning, Sir/Madam.&nbsp;&nbsp;|&nbsp;&nbsp;Informal: Hi! / Hello! / What's up?</div>
+        </div>
+        <p>Gunakan ungkapan formal saat berbicara dengan guru, kepala sekolah, atau orang yang lebih tua/belum dikenal. Gunakan ungkapan informal saat berbicara dengan teman sebaya atau sahabat dekat.</p>
+
+        <div class="mistake-box">
+          <h4>⚠️ Kesalahan Umum Siswa</h4>
+          <ul>
+            <li>Mengucapkan <em>"Good Night"</em> saat baru bertemu malam hari — seharusnya <em>"Good evening"</em>.</li>
+            <li>Diam saja saat ditanya <em>"How are you?"</em> — sebaiknya dijawab, misalnya <em>"I'm fine, thank you. And you?"</em>.</li>
+            <li>Menulis dengan huruf kapital semua: <em>"Good Morning"</em> — dalam kalimat biasa cukup <em>"Good morning"</em> (huruf kecil setelah kata pertama).</li>
+            <li>Memakai <em>"Goodbye"</em> untuk semua situasi, padahal ke teman dekat lebih pas pakai <em>"Bye"</em> atau <em>"See you"</em>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('vocabulary')">← Kembali</button><button class="btn btn-outline" onclick="goTo('model')">Lanjut →</button></div>
+    </section>
+
+    <!-- G. MODEL -->
+    <section id="model">
+      <span class="chip">Bagian 6</span>
+      <h2>🗨️ Model / Contoh Penggunaan</h2>
+      <div class="card">
+        <div class="dialogue">
+          <h4>☀️ Percakapan 1 — Formal (Bertemu guru di pagi hari)</h4>
+          <div class="bubble"><span class="who">Rian</span>Good morning, Mr. Suhendi! <button class="say-btn" onclick="speak('Good morning, Mr. Suhendi!')">🔊</button><div class="tr">Selamat pagi, Pak Suhendi!</div></div>
+          <div class="bubble right"><span class="who">Mr. Suhendi</span>Good morning, Rian. How are you today? <button class="say-btn" onclick="speak('Good morning, Rian. How are you today?')">🔊</button><div class="tr">Selamat pagi, Rian. Bagaimana kabarmu hari ini?</div></div>
+          <div class="bubble"><span class="who">Rian</span>I'm fine, thank you. And you, Sir? <button class="say-btn" onclick="speak('I am fine, thank you. And you, Sir?')">🔊</button><div class="tr">Saya baik, terima kasih. Bagaimana dengan Bapak?</div></div>
+          <div class="bubble right"><span class="who">Mr. Suhendi</span>I'm doing well, thanks. Nice to see you. <button class="say-btn" onclick="speak('I am doing well, thanks. Nice to see you.')">🔊</button><div class="tr">Saya baik-baik saja, terima kasih. Senang bertemu denganmu.</div></div>
+        </div>
+
+        <div class="dialogue">
+          <h4>🍱 Percakapan 2 — Informal (Dua teman di kantin, siang hari)</h4>
+          <div class="bubble"><span class="who">Dina</span>Hi Kiki! What's up? <button class="say-btn" onclick="speak('Hi Kiki! What is up?')">🔊</button><div class="tr">Hai Kiki! Apa kabar?</div></div>
+          <div class="bubble right"><span class="who">Kiki</span>Hello, Dina! I'm okay. Let's have lunch together. <button class="say-btn" onclick="speak('Hello, Dina! I am okay. Let us have lunch together.')">🔊</button><div class="tr">Halo, Dina! Aku baik. Ayo makan siang bareng.</div></div>
+        </div>
+
+        <div class="dialogue">
+          <h4>🌆 Percakapan 3 — Leave Taking (Pulang sekolah &amp; video call malam)</h4>
+          <div class="bubble"><span class="who">Budi</span>The bell is ringing. See you tomorrow, Andi! <button class="say-btn" onclick="speak('The bell is ringing. See you tomorrow, Andi!')">🔊</button><div class="tr">Belnya berbunyi. Sampai jumpa besok, Andi!</div></div>
+          <div class="bubble right"><span class="who">Andi</span>Bye, Budi! Take care on your way home. <button class="say-btn" onclick="speak('Bye, Budi! Take care on your way home.')">🔊</button><div class="tr">Dah, Budi! Hati-hati di jalan ya.</div></div>
+          <div class="bubble"><span class="who">Budi (video call dgn sepupu)</span>It's late here. Good night, see you next week! <button class="say-btn" onclick="speak('It is late here. Good night, see you next week!')">🔊</button><div class="tr">Sudah malam di sini. Selamat malam, sampai ketemu minggu depan!</div></div>
+        </div>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('grammar')">← Kembali</button><button class="btn btn-outline" onclick="goTo('understand')">Lanjut →</button></div>
+    </section>
+
+    <!-- H. LET'S UNDERSTAND -->
+    <section id="understand">
+      <span class="chip">Bagian 7</span>
+      <h2>🔎 Let's Understand</h2>
+      <div class="card">
+        <p>Yuk kita rangkum lagi dengan lebih sederhana — greeting yang tepat tergantung jam berapa kamu bertemu seseorang:</p>
+        <div class="time-grid">
+          <div class="time-card morning"><div class="clock">🌅</div><h4>05.00–11.00</h4><p>Good morning</p></div>
+          <div class="time-card afternoon"><div class="clock">☀️</div><h4>11.00–15.00</h4><p>Good afternoon</p></div>
+          <div class="time-card evening"><div class="clock">🌇</div><h4>15.00–18.00</h4><p>Good evening</p></div>
+          <div class="time-card night"><div class="clock">🌙</div><h4>Berpisah/malam</h4><p>Good night (bye only)</p></div>
+        </div>
+        <table style="margin-top:18px;">
+          <thead><tr><th>Situasi</th><th>Formal</th><th>Informal</th></tr></thead>
+          <tbody>
+            <tr><td>Menyapa</td><td>Good morning / Good afternoon / Good evening</td><td>Hi / Hello / What's up?</td></tr>
+            <tr><td>Berpamitan</td><td>Goodbye / Have a nice day</td><td>Bye / See you later / See you tomorrow</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('model')">← Kembali</button><button class="btn btn-outline" onclick="goTo('practice')">Lanjut ke Latihan →</button></div>
+    </section>
+
+    <!-- I. LET'S PRACTICE -->
+    <section id="practice">
+      <span class="chip">Bagian 8</span>
+      <h2>✏️ Let's Practice</h2>
+
+      <!-- LISTENING -->
+      <div class="exercise">
+        <span class="level-tag level-medium">🎧 Listening</span>
+        <h4>Dengarkan dan Jawab Pertanyaan</h4>
+        <p class="instruction">Klik tombol "Putar Audio" untuk mendengarkan cerita singkat, lalu jawab pertanyaan di bawahnya. Kamu boleh memutar ulang audio kapan saja.</p>
+        <div class="exercise-actions" style="margin-top:0;margin-bottom:14px;">
+          <button class="btn btn-accent btn-sm" onclick="playListening()">▶️ Putar Audio</button>
+          <button class="btn btn-outline btn-sm" onclick="toggleAnswer('listeningTranscript')">📄 Tampilkan/Sembunyikan Transkrip</button>
+        </div>
+        <div id="listeningTranscript" class="explain" style="margin-bottom:14px;">Rian meets his teacher, Mr. Suhendi, at the school gate in the morning. Rian says, "Good morning, Mr. Suhendi! How are you today?" Mr. Suhendi replies, "Good morning, Rian. I'm fine, thank you." Later, after school, Rian meets his friend Dina. Rian says, "Bye, Dina! See you tomorrow." Dina replies, "Bye, Rian! Take care."</div>
+        <div id="listeningExercise"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary btn-sm" onclick="checkListening()">Cek Jawaban</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetListening()">Reset</button>
+          <span class="score-out" id="listeningScore"></span>
+        </div>
+      </div>
+
+      <!-- EASY: MATCHING -->
+      <div class="exercise">
+        <span class="level-tag level-easy">🟢 Easy — Matching</span>
+        <h4>Pasangkan ungkapan dengan artinya</h4>
+        <p class="instruction">Pilih arti yang tepat untuk setiap ungkapan Bahasa Inggris di bawah ini.</p>
+        <div id="matchExercise"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary btn-sm" onclick="checkMatch()">Cek Jawaban</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetMatch()">Reset</button>
+          <span class="score-out" id="matchScore"></span>
+        </div>
+      </div>
+
+      <!-- MEDIUM: MULTIPLE CHOICE -->
+      <div class="exercise">
+        <span class="level-tag level-medium">🟡 Medium — Multiple Choice</span>
+        <h4>Pilih jawaban yang paling tepat</h4>
+        <p class="instruction">Bacalah situasi pada setiap soal, lalu pilih satu jawaban yang benar.</p>
+        <div id="mcExercise"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary btn-sm" onclick="checkMC()">Cek Jawaban</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetMC()">Reset</button>
+          <span class="score-out" id="mcScore"></span>
+        </div>
+      </div>
+
+      <!-- MEDIUM: FILL IN THE BLANKS -->
+      <div class="exercise">
+        <span class="level-tag level-medium">🟡 Medium — Fill in the Blanks</span>
+        <h4>Lengkapi kalimat berikut</h4>
+        <p class="instruction">Ketik satu kata atau frasa yang tepat pada kolom kosong. Tidak perlu huruf kapital.</p>
+        <div id="fibExercise"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary btn-sm" onclick="checkFIB()">Cek Jawaban</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetFIB()">Reset</button>
+          <span class="score-out" id="fibScore"></span>
+        </div>
+      </div>
+
+      <!-- CHALLENGE: REARRANGE -->
+      <div class="exercise">
+        <span class="level-tag level-challenge">🔴 Challenge — Rearranging Words</span>
+        <h4>Susun kata acak menjadi kalimat yang benar</h4>
+        <p class="instruction">Klik kata-kata di bawah secara berurutan untuk menyusun kalimat. Klik kata yang sudah dipakai untuk membatalkannya.</p>
+        <div id="rearrangeExercise"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary btn-sm" onclick="checkRearrange()">Cek Jawaban</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetRearrange()">Reset</button>
+          <span class="score-out" id="rearrangeScore"></span>
+        </div>
+      </div>
+
+      <!-- CHALLENGE: COMPLETE DIALOGUE -->
+      <div class="exercise">
+        <span class="level-tag level-challenge">🔴 Challenge — Completing Dialogue</span>
+        <h4>Lengkapi dialog berikut</h4>
+        <p class="instruction">Pilih ungkapan yang paling tepat untuk melengkapi dialog antara Sinta dan Miss Laras.</p>
+        <div id="dialogExercise" class="dialogue" style="background:#fff;border:1px solid var(--border);"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary btn-sm" onclick="checkDialog()">Cek Jawaban</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetDialog()">Reset</button>
+          <span class="score-out" id="dialogScore"></span>
+        </div>
+      </div>
+
+      <!-- PICTURE BASED -->
+      <div class="exercise">
+        <span class="level-tag level-medium">🟡 Medium — Picture-Based</span>
+        <h4>Lihat gambar, pilih sapaan yang tepat</h4>
+        <p class="instruction">Perhatikan gambar waktu di bawah ini, lalu pilih ungkapan greeting yang sesuai.</p>
+        <div class="picture-row" id="pictureExercise"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary btn-sm" onclick="checkPicture()">Cek Jawaban</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetPicture()">Reset</button>
+          <span class="score-out" id="pictureScore"></span>
+        </div>
+      </div>
+
+      <!-- SHORT ANSWER -->
+      <div class="exercise">
+        <span class="level-tag level-challenge">🔴 Challenge — Short Answer</span>
+        <h4>Jawab dengan kalimatmu sendiri</h4>
+        <p class="instruction">Tuliskan jawabanmu dalam Bahasa Inggris. Tidak ada jawaban salah, cobalah semampumu!</p>
+        <div class="q-row" style="display:block;">
+          <p style="margin-bottom:8px;"><strong>Q:</strong> Imagine you meet a new foreign student at 4 PM. How do you greet them and introduce yourself?</p>
+          <textarea id="shortAnswer" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+        <div class="exercise-actions">
+          <button class="btn btn-outline btn-sm" onclick="toggleAnswer('shortAnswerKey')">👁️ Tampilkan Contoh Jawaban</button>
+        </div>
+        <div id="shortAnswerKey" class="explain" style="margin-top:10px;">
+          <strong>Contoh jawaban:</strong> "Good afternoon! My name is Sinta. Nice to meet you. What's your name?"
+        </div>
+      </div>
+
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('understand')">← Kembali</button><button class="btn btn-outline" onclick="goTo('reallife')">Lanjut →</button></div>
+    </section>
+
+    <!-- J. LET'S USE IT IN REAL LIFE -->
+    <section id="reallife">
+      <span class="chip">Bagian 9</span>
+      <h2>🌍 Let's Use It in Real Life</h2>
+      <div class="card">
+        <h3 style="font-size:1rem;">Aktivitas: Role-Play "One Day, Many Greetings"</h3>
+        <p>Praktikkan langsung bersama teman sebangkumu!</p>
+        <ol class="steps">
+          <li>Berpasangan dengan teman sebangku. Tentukan siapa yang menjadi "Siswa A" dan "Siswa B".</li>
+          <li>Siswa A berpura-pura bertemu Siswa B di tiga waktu berbeda dalam satu hari: pagi di gerbang sekolah, siang di kantin, dan sore saat pulang sekolah.</li>
+          <li>Untuk setiap pertemuan, ucapkan greeting yang sesuai waktu, tanyakan kabar, lalu akhiri dengan leave taking yang tepat.</li>
+          <li>Bergantian peran, lalu tampilkan percakapan kalian singkat di depan kelas (atau rekam video jika diminta guru).</li>
+          <li>Gunakan minimal 2 ungkapan formal dan 2 ungkapan informal selama role-play.</li>
+        </ol>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('practice')">← Kembali</button><button class="btn btn-outline" onclick="goTo('project')">Lanjut →</button></div>
+    </section>
+
+    <!-- K. MINI PROJECT -->
+    <section id="project">
+      <span class="chip">Bagian 10</span>
+      <h2>🎨 Let's Create — Mini Project</h2>
+      <div class="card">
+        <h3 style="font-size:1rem;">Membuat "Greeting Card" Dialog Perkenalan</h3>
+        <p>Buatlah kartu dialog perkenalan sederhana berisi percakapan greeting dan leave taking, di kertas atau digital (boleh digambar tangan atau diketik).</p>
+        <ol class="steps">
+          <li>Pilih satu situasi: bertemu teman baru, video call keluarga, atau menyapa tamu.</li>
+          <li>Tulis nama dua tokoh dan gambarkan waktu terjadinya percakapan (pagi/siang/sore).</li>
+          <li>Susun dialog minimal 6 baris, diawali dengan greeting dan diakhiri dengan leave taking.</li>
+          <li>Hias kartu dengan gambar sederhana (matahari, bulan, atau ekspresi wajah) sesuai waktu percakapan.</li>
+          <li>Kumpulkan kartu ke gurumu, atau presentasikan singkat di depan kelas.</li>
+        </ol>
+        <p style="font-size:.85rem;color:var(--ink-faint);">Lihat rubrik penilaian proyek ini di bagian Evaluasi.</p>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('reallife')">← Kembali</button><button class="btn btn-outline" onclick="goTo('reflection')">Lanjut →</button></div>
+    </section>
+
+    <!-- L. REFLECTION -->
+    <section id="reflection">
+      <span class="chip">Bagian 11</span>
+      <h2>🪞 Reflection</h2>
+      <div class="card">
+        <p>Tuliskan refleksimu setelah belajar hari ini (jawaban tidak dinilai, ini hanya untuk kamu sendiri).</p>
+        <div class="reflect-item"><label>1. What did you learn today?</label><textarea placeholder="Tulis di sini..."></textarea></div>
+        <div class="reflect-item"><label>2. Which expression was new for you?</label><textarea placeholder="Tulis di sini..."></textarea></div>
+        <div class="reflect-item"><label>3. Where can you use this English in your daily life?</label><textarea placeholder="Tulis di sini..."></textarea></div>
+        <div class="reflect-item"><label>4. What part of the lesson was still difficult for you?</label><textarea placeholder="Tulis di sini..."></textarea></div>
+        <div class="reflect-item"><label>5. How confident do you feel using greeting &amp; leave taking now? (1–5)</label><textarea placeholder="Tulis di sini..."></textarea></div>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('project')">← Kembali</button><button class="btn btn-outline" onclick="goTo('summary')">Lanjut →</button></div>
+    </section>
+
+    <!-- M. SUMMARY -->
+    <section id="summary">
+      <span class="chip">Bagian 12</span>
+      <h2>📝 Summary / Rangkuman</h2>
+      <div class="card">
+        <div class="summary-grid">
+          <div class="summary-box">
+            <h4>Pola Utama</h4>
+            <ul>
+              <li>Good + morning/afternoon/evening = menyapa</li>
+              <li>Good night = hanya untuk berpisah</li>
+              <li>Formal: Good morning, Sir/Madam</li>
+              <li>Informal: Hi! / Hello! / What's up?</li>
+            </ul>
+          </div>
+          <div class="summary-box">
+            <h4>Kosakata Kunci</h4>
+            <ul>
+              <li>Greeting: Hi, Hello, Good morning/afternoon/evening, How are you?</li>
+              <li>Leave taking: Goodbye, Bye, See you later/tomorrow, Take care, Good night</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('reflection')">← Kembali</button><button class="btn btn-outline" onclick="goTo('assessment')">Lanjut ke Evaluasi →</button></div>
+    </section>
+
+    <!-- N. ASSESSMENT -->
+    <section id="assessment">
+      <span class="chip">Bagian 13</span>
+      <h2>✅ Assessment / Evaluasi</h2>
+      <div class="card">
+        <h3 style="font-size:1rem;">A. Pilihan Ganda (10 soal)</h3>
+        <p class="instruction">Pilih satu jawaban paling tepat untuk setiap soal, lalu klik "Cek Semua Jawaban" di akhir.</p>
+        <div id="assessExercise"></div>
+        <div class="exercise-actions">
+          <button class="btn btn-primary" onclick="checkAssessment()">Cek Semua Jawaban</button>
+          <button class="btn btn-ghost" onclick="resetAssessment()">Reset Latihan</button>
+        </div>
+        <div class="assess-final" id="assessFinal" style="display:none;">
+          <span>Skor Pilihan Ganda kamu:</span>
+          <span class="big-score" id="assessBigScore">0/10</span>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:28px;">B. Soal Uraian</h3>
+        <p><strong>Write a short dialogue (4–6 lines) between you and a new friend you meet after school at 4 PM. Include a greeting and a leave taking.</strong></p>
+        <p style="font-size:.85rem;">(Tulis dialog singkat 4–6 baris antara kamu dan teman baru yang kamu temui sepulang sekolah jam 4 sore. Sertakan greeting dan leave taking.)</p>
+        <textarea id="essayAnswer" placeholder="Tulis dialogmu di sini..."></textarea>
+        <div class="exercise-actions">
+          <button class="btn btn-outline btn-sm" onclick="toggleAnswer('essayKey')">👁️ Tampilkan Contoh Jawaban</button>
+        </div>
+        <div id="essayKey" class="explain" style="margin-top:10px;">
+          <strong>Contoh jawaban:</strong><br>
+          A: Good afternoon! My name is Lina.<br>
+          B: Good afternoon, Lina! I'm Rafi. Nice to meet you.<br>
+          A: Nice to meet you too. Are you new here?<br>
+          B: Yes, I just moved here.<br>
+          A: I have to go now. See you tomorrow!<br>
+          B: Bye, Lina! Take care.
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:28px;">C. Rubrik Penilaian (Uraian &amp; Proyek Mini)</h3>
+        <div style="overflow-x:auto;">
+        <table class="rubric-table">
+          <thead><tr><th>Aspek</th><th>Skor 4 (Sangat Baik)</th><th>Skor 3 (Baik)</th><th>Skor 2 (Cukup)</th><th>Skor 1 (Perlu Bimbingan)</th></tr></thead>
+          <tbody>
+            <tr><td>Ketepatan Ungkapan</td><td>Semua greeting &amp; leave taking tepat sesuai waktu/situasi</td><td>Sebagian besar tepat, 1 kesalahan kecil</td><td>Beberapa ungkapan kurang tepat</td><td>Sebagian besar ungkapan salah</td></tr>
+            <tr><td>Struktur Dialog</td><td>Dialog lengkap &amp; runtut (pembuka-isi-penutup)</td><td>Dialog cukup lengkap</td><td>Dialog kurang lengkap</td><td>Dialog tidak jelas alurnya</td></tr>
+            <tr><td>Kreativitas</td><td>Ide orisinal &amp; menarik, disertai visual pendukung</td><td>Cukup kreatif</td><td>Kurang variatif</td><td>Sekadar meniru contoh</td></tr>
+            <tr><td>Kerapian/Tata Bahasa</td><td>Ejaan &amp; tata bahasa hampir tanpa kesalahan</td><td>Ada sedikit kesalahan, tidak mengganggu makna</td><td>Beberapa kesalahan mengganggu pemahaman</td><td>Banyak kesalahan sehingga sulit dipahami</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:.82rem;color:var(--ink-faint);margin-top:8px;">Nilai akhir = (Total skor semua aspek ÷ 16) × 100</p>
+      </div>
+      <div class="nav-btns"><button class="btn btn-outline" onclick="goTo('summary')">← Kembali</button><button class="btn btn-accent" onclick="goTo('hero')">Kembali ke Awal ↑</button></div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Materi Bahasa Inggris "Say Hi &amp; Bye!" — Greeting &amp; Leave Taking · Kelas VII Fase D · Disusun oleh Suhendi, S.Pd · Kurikulum Merdeka
+</footer>
+
+<script>
+/* ===================== DATA ===================== */
+const vocabData = [
+  ["Good morning","Selamat pagi","Good morning, Mr. Andi!"],
+  ["Good afternoon","Selamat siang","Good afternoon, everyone."],
+  ["Good evening","Selamat sore/malam (saat bertemu)","Good evening, Grandma."],
+  ["Good night","Selamat malam (saat berpisah/mau tidur)","Good night, sleep well."],
+  ["Hi","Hai (informal)","Hi, Dina!"],
+  ["Hello","Halo","Hello, my name is Budi."],
+  ["How are you?","Apa kabar?","Hi Rian, how are you?"],
+  ["I'm fine, thank you","Aku baik-baik saja, terima kasih","I'm fine, thank you. And you?"],
+  ["Nice to meet you","Senang bertemu denganmu","Nice to meet you, Miss Rina."],
+  ["What's up?","Apa kabar? (sangat informal)","Hey Toni, what's up?"],
+  ["Goodbye","Selamat tinggal / sampai jumpa","Goodbye, see you next week."],
+  ["Bye","Dah (informal)","Bye, Kiki! See you tomorrow."],
+  ["See you later","Sampai jumpa nanti","See you later, after class."],
+  ["See you tomorrow","Sampai jumpa besok","See you tomorrow at school."],
+  ["Take care","Jaga diri baik-baik","Take care on your way home."],
+  ["Have a nice day","Semoga harimu menyenangkan","Have a nice day, Mom!"]
+];
+
+const matchData = [
+  {q:"Good morning", options:["Selamat siang","Selamat pagi","Selamat malam","Sampai jumpa"], answer:"Selamat pagi"},
+  {q:"Goodbye", options:["Halo","Apa kabar?","Selamat tinggal","Senang bertemu"], answer:"Selamat tinggal"},
+  {q:"Nice to meet you", options:["Senang bertemu denganmu","Jaga diri baik-baik","Apa kabar?","Sampai jumpa besok"], answer:"Senang bertemu denganmu"},
+  {q:"Take care", options:["Selamat pagi","Jaga diri baik-baik","Hai","Dah"], answer:"Jaga diri baik-baik"},
+  {q:"See you tomorrow", options:["Sampai jumpa besok","Selamat sore","Apa kabar?","Selamat malam"], answer:"Sampai jumpa besok"},
+  {q:"How are you?", options:["Siapa namamu?","Apa kabar?","Dari mana?","Mau kemana?"], answer:"Apa kabar?"}
+];
+
+const mcData = [
+  {q:"You meet your teacher at 8 AM. What do you say?", options:["Good night, Sir.","Good morning, Sir.","Goodbye, Sir.","Good afternoon, Sir."], answer:1, explain:"Pukul 08.00 termasuk pagi hari, jadi greeting yang tepat adalah 'Good morning'."},
+  {q:"You are saying goodbye to your grandma before sleeping. What do you say?", options:["Good morning, Grandma.","Good afternoon, Grandma.","Good night, Grandma.","Good evening, Grandma."], answer:2, explain:"'Good night' dipakai saat berpisah/mau tidur, bukan saat menyapa."},
+  {q:"Your close friend says 'What's up?'. This expression is...", options:["Very formal","Informal","Only for teachers","A leave taking"], answer:1, explain:"'What's up?' adalah sapaan informal yang biasa dipakai antar teman dekat."},
+  {q:"Someone asks 'How are you?'. The best response is...", options:["Yes, please.","I'm fine, thank you. And you?","Good night.","See you later."], answer:1, explain:"Jawaban yang tepat untuk 'How are you?' adalah memberi kabar, misalnya 'I'm fine, thank you. And you?'"},
+  {q:"Which one is a FORMAL greeting?", options:["Hi!","What's up?","Good morning, Madam.","Yo!"], answer:2, explain:"'Good morning, Madam' adalah ungkapan formal, cocok untuk guru atau orang yang lebih tua."}
+];
+
+const fibData = [
+  {sentence:"Good ___, Mr. Andi! (diucapkan pukul 07.00)", answers:["morning"]},
+  {sentence:"___, my name is Sinta. Nice to meet you.", answers:["hello","hi"]},
+  {sentence:"I'm fine, thank you. And ___?", answers:["you"]},
+  {sentence:"The bell is ringing. See you ___, Budi!", answers:["tomorrow"]},
+  {sentence:"Take ___ on your way home.", answers:["care"]}
+];
+
+const rearrangeData = [
+  {words:["morning,","Good","teacher!","my"], correct:"Good morning, my teacher!"},
+  {words:["you","are","How","today?"], correct:"How are you today?"},
+  {words:["you","See","later!"], correct:"See you later!"}
+];
+
+const dialogData = [
+  {before:"Sinta: Good afternoon, Miss Laras!", blankId:"d1", options:["I'm hungry.","Good afternoon, Sinta. How are you?","Goodbye, Sinta.","I don't know."], answer:1},
+  {before:"Sinta:", blankId:"d2", options:["I'm fine, thank you. And you, Miss?","Good morning.","My name is Sinta.","See you tomorrow."], answer:0},
+  {before:"Miss Laras: I'm doing well, thank you. Have you finished your homework?", blankId:"d3", options:["Good night, Miss.","Yes, Miss. I have finished it.","Nice to meet you.","What's up?"], answer:1},
+  {before:"Miss Laras: Great! The class is over now.", blankId:"d4", options:["Hello, Miss Laras.","How are you?","Goodbye, Miss Laras. Have a nice day!","Good afternoon."], answer:2}
+];
+
+const listeningTranscript = "Rian meets his teacher, Mr. Suhendi, at the school gate in the morning. Rian says, Good morning, Mr. Suhendi! How are you today? Mr. Suhendi replies, Good morning, Rian. I'm fine, thank you. Later, after school, Rian meets his friend Dina. Rian says, Bye, Dina! See you tomorrow. Dina replies, Bye, Rian! Take care.";
+const listeningData = [
+  {q:"When does Rian meet Mr. Suhendi?", options:["In the morning","In the afternoon","In the evening","At night"], answer:0},
+  {q:"What does Rian say when he meets Mr. Suhendi?", options:["Good night, Mr. Suhendi.","Good morning, Mr. Suhendi! How are you today?","Goodbye, Mr. Suhendi.","See you later, Mr. Suhendi."], answer:1},
+  {q:"Who does Rian meet after school?", options:["His teacher","His mother","His friend Dina","His neighbor"], answer:2},
+  {q:"What does Dina say to Rian when they part?", options:["Good morning, Rian.","Nice to meet you, Rian.","Bye, Rian! Take care.","How are you, Rian?"], answer:2}
+];
+
+const pictureData = [
+  {icon:"sun-rise", label:"05.00", options:["Good morning","Good afternoon","Good evening","Good night"], answer:0},
+  {icon:"sun-high", label:"12.30", options:["Good morning","Good afternoon","Good evening","Goodbye"], answer:1},
+  {icon:"sun-set", label:"16.30", options:["Good morning","Good night","Good evening","See you"], answer:2},
+  {icon:"moon", label:"Berpisah, malam hari", options:["Good morning","Good afternoon","Good night","Hello"], answer:2}
+];
+
+const assessData = [
+  {q:"1. What do you say when you meet a friend at 7 AM?", options:["Good night","Good morning","Good evening","Goodbye"], answer:1},
+  {q:"2. What is a polite formal greeting for a teacher?", options:["Yo!","What's up?","Good morning, Sir.","Hiya!"], answer:2},
+  {q:"3. Which expression means 'berpamitan'?", options:["Nice to meet you","Good afternoon","Goodbye","How are you?"], answer:2},
+  {q:"4. Choose the correct response to 'How are you?'", options:["I'm nine years old.","I'm fine, thank you.","My name is Rudi.","See you later."], answer:1},
+  {q:"5. 'Good night' is used when...", options:["Meeting someone in the morning","Meeting someone at noon","Saying goodbye at night / before sleeping","Greeting a teacher at school"], answer:2},
+  {q:"6. Which one is an INFORMAL greeting?", options:["Good morning, Madam.","Hi!","Good afternoon, Sir.","How do you do?"], answer:1},
+  {q:"7. You meet your friend at 2 PM. You say...", options:["Good morning","Good afternoon","Good night","Goodbye"], answer:1},
+  {q:"8. 'See you tomorrow' is used to...", options:["Greet someone in the morning","Ask someone's name","Say goodbye and plan to meet again","Ask how someone feels"], answer:2},
+  {q:"9. Choose the correct sentence.", options:["Good Morning, sir.","good morning, Sir.","Good morning, Sir.","GOOD MORNING SIR"], answer:2},
+  {q:"10. Which expression is used to say goodbye to a close friend?", options:["Good afternoon, Sir.","Nice to meet you.","Bye! See you tomorrow.","How are you?"], answer:2}
+];
+
+/* ===================== RENDER: VOCAB ===================== */
+const vocabBody = document.getElementById('vocabBody');
+vocabData.forEach(([en, id, ex]) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="eng-cell">${en} <button class="say-btn" onclick="speak('${en.replace(/'/g,"\\'")}')">🔊</button></td><td>${id}</td><td><em>${ex}</em></td>`;
+  vocabBody.appendChild(tr);
+});
+
+/* ===================== RENDER: MATCHING ===================== */
+const matchEl = document.getElementById('matchExercise');
+matchData.forEach((item, i) => {
+  const row = document.createElement('div');
+  row.className = 'q-row';
+  const opts = item.options.map(o => `<option value="${o}">${o}</option>`).join('');
+  row.innerHTML = `<span class="q-num">${i+1}.</span><strong style="min-width:140px;">${item.q}</strong>
+    <select id="match-${i}"><option value="">-- pilih arti --</option>${opts}</select>
+    <span class="fb-icon" id="match-fb-${i}"></span>`;
+  matchEl.appendChild(row);
+});
+function checkMatch(){
+  let score = 0;
+  matchData.forEach((item,i)=>{
+    const sel = document.getElementById('match-'+i);
+    const fb = document.getElementById('match-fb-'+i);
+    if(sel.value === item.answer){ fb.textContent='✓'; fb.className='fb-icon correct'; score++; }
+    else { fb.textContent = sel.value ? '✗' : '?'; fb.className='fb-icon incorrect'; }
+  });
+  document.getElementById('matchScore').textContent = `Skor: ${score}/${matchData.length}`;
+}
+function resetMatch(){
+  matchData.forEach((item,i)=>{
+    document.getElementById('match-'+i).value='';
+    document.getElementById('match-fb-'+i).textContent='';
+  });
+  document.getElementById('matchScore').textContent='';
+}
+
+/* ===================== RENDER: MULTIPLE CHOICE (practice) ===================== */
+const mcEl = document.getElementById('mcExercise');
+mcData.forEach((item,i)=>{
+  const wrap = document.createElement('div');
+  wrap.style.marginBottom='16px';
+  let optsHtml = item.options.map((o,j)=>`<label class="mc-option"><input type="radio" name="mc-${i}" value="${j}">${o}</label>`).join('');
+  wrap.innerHTML = `<p style="margin-bottom:6px;"><strong>${i+1}.</strong> ${item.q}</p>${optsHtml}<div class="explain" id="mc-explain-${i}">${item.explain}</div>`;
+  mcEl.appendChild(wrap);
+});
+function checkMC(){
+  let score=0;
+  mcData.forEach((item,i)=>{
+    const chosen = document.querySelector(`input[name="mc-${i}"]:checked`);
+    const exp = document.getElementById('mc-explain-'+i);
+    exp.classList.add('show');
+    if(chosen && parseInt(chosen.value)===item.answer) score++;
+  });
+  document.getElementById('mcScore').textContent = `Skor: ${score}/${mcData.length}`;
+}
+function resetMC(){
+  mcData.forEach((item,i)=>{
+    document.querySelectorAll(`input[name="mc-${i}"]`).forEach(r=>r.checked=false);
+    document.getElementById('mc-explain-'+i).classList.remove('show');
+  });
+  document.getElementById('mcScore').textContent='';
+}
+
+/* ===================== RENDER: FILL IN BLANKS ===================== */
+const fibEl = document.getElementById('fibExercise');
+fibData.forEach((item,i)=>{
+  const row = document.createElement('div');
+  row.className='q-row';
+  row.innerHTML = `<span class="q-num">${i+1}.</span><span>${item.sentence.replace('___', '<input type="text" id="fib-'+i+'" style="width:110px;">')}</span><span class="fb-icon" id="fib-fb-${i}"></span>`;
+  fibEl.appendChild(row);
+});
+function checkFIB(){
+  let score=0;
+  fibData.forEach((item,i)=>{
+    const val = document.getElementById('fib-'+i).value.trim().toLowerCase();
+    const fb = document.getElementById('fib-fb-'+i);
+    if(item.answers.includes(val)){ fb.textContent='✓'; fb.className='fb-icon correct'; score++; }
+    else { fb.textContent = val ? '✗' : '?'; fb.className='fb-icon incorrect'; }
+  });
+  document.getElementById('fibScore').textContent = `Skor: ${score}/${fibData.length}`;
+}
+function resetFIB(){
+  fibData.forEach((item,i)=>{
+    document.getElementById('fib-'+i).value='';
+    document.getElementById('fib-fb-'+i).textContent='';
+  });
+  document.getElementById('fibScore').textContent='';
+}
+
+/* ===================== RENDER: REARRANGE ===================== */
+const rearrangeEl = document.getElementById('rearrangeExercise');
+let rearrangeState = rearrangeData.map(()=>[]);
+function renderRearrange(){
+  rearrangeEl.innerHTML='';
+  rearrangeData.forEach((item,i)=>{
+    const block = document.createElement('div');
+    block.style.marginBottom='18px';
+    const bank = item.words.map((w,j)=>{
+      const used = rearrangeState[i].includes(j);
+      return `<span class="word-chip ${used?'used':''}" onclick="pickWord(${i},${j})">${w}</span>`;
+    }).join('');
+    const slotWords = rearrangeState[i].map(j=>`<span class="word-chip" onclick="unpickWord(${i},${rearrangeState[i].indexOf(j)})">${item.words[j]}</span>`).join('');
+    block.innerHTML = `<p style="margin-bottom:8px;"><strong>${i+1}.</strong></p>
+      <div class="word-bank">${bank}</div>
+      <div class="answer-slot" id="rearrange-slot-${i}">${slotWords || '<span style="color:var(--ink-faint);font-size:.82rem;">Klik kata di atas untuk mulai menyusun...</span>'}</div>
+      <span class="fb-icon" id="rearrange-fb-${i}"></span>`;
+    rearrangeEl.appendChild(block);
+  });
+}
+function pickWord(exIdx, wordIdx){
+  if(rearrangeState[exIdx].includes(wordIdx)) return;
+  rearrangeState[exIdx].push(wordIdx);
+  renderRearrange();
+}
+function unpickWord(exIdx, posInSlot){
+  rearrangeState[exIdx].splice(posInSlot,1);
+  renderRearrange();
+}
+function checkRearrange(){
+  let score=0;
+  rearrangeData.forEach((item,i)=>{
+    const built = rearrangeState[i].map(j=>item.words[j]).join(' ');
+    const fb = document.getElementById('rearrange-fb-'+i);
+    if(built === item.correct){ fb.textContent='✓ Benar!'; fb.className='fb-icon correct'; score++; }
+    else { fb.textContent='✗ Coba lagi'; fb.className='fb-icon incorrect'; }
+  });
+  document.getElementById('rearrangeScore').textContent = `Skor: ${score}/${rearrangeData.length}`;
+}
+function resetRearrange(){
+  rearrangeState = rearrangeData.map(()=>[]);
+  renderRearrange();
+  document.getElementById('rearrangeScore').textContent='';
+}
+renderRearrange();
+
+/* ===================== RENDER: COMPLETE DIALOGUE ===================== */
+const dialogEl = document.getElementById('dialogExercise');
+dialogData.forEach((item,i)=>{
+  const row = document.createElement('div');
+  row.style.marginBottom='12px';
+  const opts = item.options.map((o,j)=>`<option value="${j}">${o}</option>`).join('');
+  row.innerHTML = `<div class="bubble" style="max-width:100%;">${item.before ? item.before+'<br>' : ''}
+    <select id="${item.blankId}" style="margin-top:6px;"><option value="">-- pilih ungkapan --</option>${opts}</select>
+    <span class="fb-icon" id="${item.blankId}-fb"></span></div>`;
+  dialogEl.appendChild(row);
+});
+function checkDialog(){
+  let score=0;
+  dialogData.forEach(item=>{
+    const sel = document.getElementById(item.blankId);
+    const fb = document.getElementById(item.blankId+'-fb');
+    if(parseInt(sel.value)===item.answer){ fb.textContent='✓'; fb.className='fb-icon correct'; score++; }
+    else { fb.textContent = sel.value ? '✗' : '?'; fb.className='fb-icon incorrect'; }
+  });
+  document.getElementById('dialogScore').textContent = `Skor: ${score}/${dialogData.length}`;
+}
+function resetDialog(){
+  dialogData.forEach(item=>{
+    document.getElementById(item.blankId).value='';
+    document.getElementById(item.blankId+'-fb').textContent='';
+  });
+  document.getElementById('dialogScore').textContent='';
+}
+
+/* ===================== RENDER: LISTENING ===================== */
+const listeningEl = document.getElementById('listeningExercise');
+listeningData.forEach((item,i)=>{
+  const wrap=document.createElement('div');
+  wrap.style.marginBottom='16px';
+  const opts=item.options.map((o,j)=>`<label class="mc-option"><input type="radio" name="lst-${i}" value="${j}">${o}</label>`).join('');
+  wrap.innerHTML = `<p style="margin-bottom:6px;"><strong>${i+1}.</strong> ${item.q}</p>${opts}`;
+  listeningEl.appendChild(wrap);
+});
+function playListening(){ speak(listeningTranscript); }
+function checkListening(){
+  let score=0;
+  listeningData.forEach((item,i)=>{
+    const chosen=document.querySelector(`input[name="lst-${i}"]:checked`);
+    document.querySelectorAll(`input[name="lst-${i}"]`).forEach(r=>r.closest('label').style.background='');
+    if(chosen){
+      const label=chosen.closest('label');
+      if(parseInt(chosen.value)===item.answer){ score++; label.style.background='var(--success-light)'; }
+      else{ label.style.background='var(--danger-light)'; }
+    }
+  });
+  document.getElementById('listeningScore').textContent = `Skor: ${score}/${listeningData.length}`;
+}
+function resetListening(){
+  listeningData.forEach((item,i)=>{
+    document.querySelectorAll(`input[name="lst-${i}"]`).forEach(r=>{r.checked=false; r.closest('label').style.background='';});
+  });
+  document.getElementById('listeningScore').textContent='';
+}
+
+/* ===================== RENDER: PICTURE BASED ===================== */
+const iconsSVG = {
+  'sun-rise': `<svg viewBox="0 0 64 64"><circle cx="32" cy="40" r="14" fill="#E39A2D"/><line x1="32" y1="10" x2="32" y2="18" stroke="#E39A2D" stroke-width="3" stroke-linecap="round"/><line x1="14" y1="24" x2="20" y2="28" stroke="#E39A2D" stroke-width="3" stroke-linecap="round"/><line x1="50" y1="24" x2="44" y2="28" stroke="#E39A2D" stroke-width="3" stroke-linecap="round"/><line x1="10" y1="54" x2="54" y2="54" stroke="#8A96AC" stroke-width="3" stroke-linecap="round"/></svg>`,
+  'sun-high': `<svg viewBox="0 0 64 64"><circle cx="32" cy="30" r="14" fill="#E39A2D"/><g stroke="#E39A2D" stroke-width="3" stroke-linecap="round"><line x1="32" y1="4" x2="32" y2="12"/><line x1="32" y1="48" x2="32" y2="56"/><line x1="6" y1="30" x2="14" y2="30"/><line x1="50" y1="30" x2="58" y2="30"/><line x1="13" y1="11" x2="19" y2="17"/><line x1="45" y1="43" x2="51" y2="49"/><line x1="13" y1="49" x2="19" y2="43"/><line x1="45" y1="17" x2="51" y2="11"/></g></svg>`,
+  'sun-set': `<svg viewBox="0 0 64 64"><circle cx="32" cy="38" r="12" fill="#6C5CE0" clip-path="inset(0 0 6px 0)"/><path d="M20 38 A12 12 0 0 1 44 38 Z" fill="#6C5CE0"/><line x1="32" y1="14" x2="32" y2="20" stroke="#6C5CE0" stroke-width="3" stroke-linecap="round"/><line x1="12" y1="38" x2="52" y2="38" stroke="#6C5CE0" stroke-width="2"/><line x1="10" y1="52" x2="54" y2="52" stroke="#8A96AC" stroke-width="3" stroke-linecap="round"/></svg>`,
+  'moon': `<svg viewBox="0 0 64 64"><path d="M40 12a20 20 0 1 0 12 36 16 16 0 0 1-12-36z" fill="#4A4098"/><circle cx="46" cy="14" r="2" fill="#4A4098"/><circle cx="52" cy="24" r="1.5" fill="#4A4098"/></svg>`
+};
+const pictureEl = document.getElementById('pictureExercise');
+pictureData.forEach((item,i)=>{
+  const card = document.createElement('div');
+  card.className='picture-card';
+  const opts = item.options.map((o,j)=>`<option value="${j}">${o}</option>`).join('');
+  card.innerHTML = `${iconsSVG[item.icon]}<p style="font-size:.8rem;margin:6px 0 0;color:var(--ink-faint);">${item.label}</p>
+    <select id="pic-${i}"><option value="">Pilih...</option>${opts}</select>
+    <div class="fb-icon" id="pic-fb-${i}"></div>`;
+  pictureEl.appendChild(card);
+});
+function checkPicture(){
+  let score=0;
+  pictureData.forEach((item,i)=>{
+    const sel=document.getElementById('pic-'+i);
+    const fb=document.getElementById('pic-fb-'+i);
+    if(parseInt(sel.value)===item.answer){fb.textContent='✓';fb.className='fb-icon correct';score++;}
+    else{fb.textContent= sel.value ? '✗':'?';fb.className='fb-icon incorrect';}
+  });
+  document.getElementById('pictureScore').textContent = `Skor: ${score}/${pictureData.length}`;
+}
+function resetPicture(){
+  pictureData.forEach((item,i)=>{
+    document.getElementById('pic-'+i).value='';
+    document.getElementById('pic-fb-'+i).textContent='';
+  });
+  document.getElementById('pictureScore').textContent='';
+}
+
+/* ===================== RENDER: ASSESSMENT ===================== */
+const assessEl = document.getElementById('assessExercise');
+assessData.forEach((item,i)=>{
+  const wrap=document.createElement('div');
+  wrap.style.marginBottom='16px';
+  const opts=item.options.map((o,j)=>`<label class="mc-option"><input type="radio" name="as-${i}" value="${j}">${o}</label>`).join('');
+  wrap.innerHTML = `<p style="margin-bottom:6px;"><strong>${item.q}</strong></p>${opts}`;
+  assessEl.appendChild(wrap);
+});
+function checkAssessment(){
+  let score=0;
+  assessData.forEach((item,i)=>{
+    const chosen=document.querySelector(`input[name="as-${i}"]:checked`);
+    const label = chosen ? chosen.closest('label') : null;
+    // reset styling first
+    document.querySelectorAll(`input[name="as-${i}"]`).forEach(r=>r.closest('label').style.background='');
+    if(chosen && parseInt(chosen.value)===item.answer){ score++; if(label) label.style.background='var(--success-light)'; }
+    else if(chosen && label){ label.style.background='var(--danger-light)'; }
+  });
+  document.getElementById('assessFinal').style.display='flex';
+  document.getElementById('assessBigScore').textContent = `${score}/${assessData.length}`;
+}
+function resetAssessment(){
+  assessData.forEach((item,i)=>{
+    document.querySelectorAll(`input[name="as-${i}"]`).forEach(r=>{r.checked=false; r.closest('label').style.background='';});
+  });
+  document.getElementById('assessFinal').style.display='none';
+}
+
+/* ===================== SHOW/HIDE ANSWER ===================== */
+function toggleAnswer(id){
+  document.getElementById(id).classList.toggle('show');
+}
+
+/* ===================== SPEECH ===================== */
+function speak(text){
+  if(!('speechSynthesis' in window)){ alert('Maaf, browser ini tidak mendukung fitur suara.'); return; }
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang='en-US';
+  utter.rate=0.92;
+  window.speechSynthesis.speak(utter);
+}
+
+/* ===================== NAVIGATION ===================== */
+function goTo(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  toggleMenu(false);
+}
+function toggleMenu(force){
+  const sb = document.getElementById('sidebar');
+  const bd = document.getElementById('backdrop');
+  const open = force !== undefined ? force : !sb.classList.contains('open');
+  sb.classList.toggle('open', open);
+  bd.style.display = open ? 'block' : 'none';
+}
+
+/* progress bar + active link + visited counter */
+const sections = Array.from(document.querySelectorAll('main section'));
+const totalSections = sections.length;
+const visited = new Set();
+const progressChip = document.getElementById('progressChip');
+const tocLinks = document.querySelectorAll('nav.sidebar a');
+
+function updateProgressBar(){
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.min(100,(scrollTop/docHeight)*100) : 0;
+  document.getElementById('progressBar').style.width = pct+'%';
+}
+window.addEventListener('scroll', updateProgressBar);
+updateProgressBar();
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    const id = entry.target.id;
+    if(entry.isIntersecting){
+      visited.add(id);
+      progressChip.textContent = `${visited.size}/${totalSections} bagian dibaca`;
+      tocLinks.forEach(a=>a.classList.toggle('active', a.dataset.sec===id));
+    }
+  });
+}, {rootMargin:'-40% 0px -50% 0px', threshold:0});
+sections.forEach(sec=>observer.observe(sec));
+
+/* ===================== GLOBAL RESET (optional helper) ===================== */
+function resetAllExercises(){
+  resetMatch(); resetMC(); resetFIB(); resetRearrange(); resetDialog(); resetPicture(); resetAssessment(); resetListening();
+}
+</script>
+</body>
+</html>
